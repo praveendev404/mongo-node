@@ -1,0 +1,15 @@
+{
+  "name": "mongo-node",
+  "version": "1.0.0",
+  "description": "mongo node demo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Praveen",
+  "license": "ISC",
+  "dependencies": {
+    "mongodb": "^3.3.2",
+    "mongoose": "^5.7.5"
+  }
+}
