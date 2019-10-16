@@ -1,0 +1,9 @@
+{
+  "dbConfig": {
+    "server": "TR-VLT-002\\SQLEXPRESS",
+    "database": "SampleDB",
+    "user": "sa",
+    "password": "test12$",
+    "port": "1433"
+  }
+}
