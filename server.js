@@ -41,14 +41,32 @@ app.get("/api/get", function(req, res) {
           return;
         }
         const db = client.db("local");
-
-        const collection = db.collection("Employee");
-        collection.find().toArray((err, items) => {
-          console.log(items);
-          res.status(200).send({
-            items: items
+        db.collection("Employee")
+          .aggregate([
+            {
+              $lookup: {
+                from: "Skills",
+                localField: "_id",
+                foreignField: "employee_ID",
+                as: "Employee_Skills"
+              }
+            }
+          ])
+          .toArray((err, items) => {
+            console.log(items);
+            res.status(200).send({
+              items: items
+            });
           });
-        });
+
+        // const test = employeeWithSkills.toArray();
+        // const collection = db.collection("Skills");
+        // collection.find().toArray((err, items) => {
+        //   console.log(items);
+        //   res.status(200).send({
+        //     items: items
+        //   });
+        // });
       }
     );
   } catch (err) {
